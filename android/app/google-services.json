@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "595965859777",
+    "project_id": "appdespy",
+    "storage_bucket": "appdespy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595965859777:android:6f1a2dd56559af663e8140",
+        "android_client_info": {
+          "package_name": "com.despy.despyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595965859777-k50muss7mp82nueo722tilfl6qcsgnqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrja6H_KnywpNnnMUgZ0MdgjAcIQZc4ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595965859777-k50muss7mp82nueo722tilfl6qcsgnqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

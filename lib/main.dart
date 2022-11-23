@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'config.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  // Load Application
+  await initConfirgurations();
+
+  runApp(const DespyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class DespyApp extends StatelessWidget {
+  const DespyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: null,
-    );
+    return const MaterialApp();
   }
 }
