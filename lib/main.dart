@@ -5,7 +5,9 @@ void main() async {
   // Load Application
   await initConfirgurations();
 
-  runApp(const DespyApp());
+  runApp(
+    const DespyApp(),
+  );
 }
 
 class DespyApp extends StatelessWidget {
