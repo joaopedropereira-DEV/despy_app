@@ -9,7 +9,7 @@ class Category {
     required this.img,
   });
 
-  Map<String, dynamic> toJson(Category category) {
+  static Map<String, dynamic> toJson(Category category) {
     // Category to Json
     final Map<String, dynamic> data = {};
 
