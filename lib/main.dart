@@ -1,4 +1,4 @@
-import 'package:despy_app/features/view/controllers/transaction_controller.dart';
+import 'package:despy_app/features/view/controllers/global_controller.dart';
 import 'package:despy_app/features/view/pages/data_test.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ class DespyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => TransactionController(),
+          create: (_) => GlobalController(),
         ),
       ],
       child: const MaterialApp(

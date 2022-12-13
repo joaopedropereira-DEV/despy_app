@@ -57,4 +57,33 @@ class TransactionModel {
 
   factory TransactionModel.fromJson(String source) =>
       TransactionModel.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() {
+    return 'TransactionModel(id: $id, value: $value, title: $title, description: $description, refCategory: $refCategory, createAt: $createAt, toRepeat: $toRepeat, status: $status, type: $type)';
+  }
+
+  TransactionModel copyWith({
+    String? id,
+    double? value,
+    String? title,
+    String? description,
+    String? refCategory,
+    DateTime? createAt,
+    bool? toRepeat,
+    String? status,
+    String? type,
+  }) {
+    return TransactionModel(
+      id: id ?? this.id,
+      value: value ?? this.value,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      refCategory: refCategory ?? this.refCategory,
+      createAt: createAt ?? this.createAt,
+      toRepeat: toRepeat ?? this.toRepeat,
+      status: status ?? this.status,
+      type: type ?? this.type,
+    );
+  }
 }

@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:despy_app/features/core/errors/http_exception.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
-class DataService with ChangeNotifier {
-  DataService({required this.uid});
+class RepositoryTransaction {
+  RepositoryTransaction({required this.uid});
 
   final String uid;
 
@@ -17,15 +16,15 @@ class DataService with ChangeNotifier {
 
   /*
 
-    -REPOSITORY-
+
 
     (GET) DATA FROM DATABASE AND RETURN TO CONTROLLER
 
-    => Load Transaction
+
 
   */
 
-  Future<Map<String, dynamic>> fetchData() async {
+  Future<Map<String, dynamic>> findAllTransaction() async {
     Map<String, dynamic>? datasFromDatabase = {};
     final url = getUrlDatabase(path: "transaction");
     final response = await http.get(Uri.parse(url));
@@ -57,15 +56,15 @@ class DataService with ChangeNotifier {
 
   /*
 
-    -REPOSITORY-
+
 
     (POST) DATA to DATABASE AND RETURN STATUSCODE
 
-    => Create Transaction
+
     
   */
 
-  Future<int> createData(Map<String, dynamic> data) async {
+  Future<int> readNewTransaction(Map<String, dynamic> data) async {
     final url = getUrlDatabase(path: "transaction");
     final response = await http.post(
       Uri.parse(url),
@@ -91,15 +90,15 @@ class DataService with ChangeNotifier {
 
   /*
 
-    -REPOSITORY-
+    
 
     (PATCH) DATA TO DATABASE AND RETURN STATUSCODE
 
-    => Patch Transaction
+    
     
   */
 
-  Future<int> patchData(String id, Map<String, dynamic> data) async {
+  Future<int> patchTransaction(String id, Map<String, dynamic> data) async {
     final url = getUrlDatabase(path: "transaction/$id");
     final response = await http.patch(
       Uri.parse(url),
@@ -125,15 +124,15 @@ class DataService with ChangeNotifier {
 
   /*
 
-    -REPOSITORY-
+    
 
     (DELETE) DATA TO DATABASE AND RETURN TO STATUSCODE
 
-    => Delete Transaction
+    
     
   */
 
-  Future<int> deleteData(String id) async {
+  Future<int> deleteTransaction(String id) async {
     final url = getUrlDatabase(path: "transaction/$id");
     final response = await http.delete(Uri.parse(url));
 

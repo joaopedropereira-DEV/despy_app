@@ -1,5 +1,5 @@
 import 'package:despy_app/features/core/models/model_transaction.dart';
-import 'package:despy_app/features/view/controllers/transaction_controller.dart';
+import 'package:despy_app/features/view/controllers/global_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,16 +14,15 @@ class _TestPageState extends State<TestPage> {
   @override
   void initState() {
     Future.delayed(const Duration(milliseconds: 0), () {
-      final controller =
-          Provider.of<TransactionController>(context, listen: false);
-      controller.load();
+      final controller = Provider.of<GlobalController>(context, listen: false);
+      controller.loadAllContent();
     });
     super.initState();
   }
 
   void addTransaction() async {
-    final provider = Provider.of<TransactionController>(context, listen: false);
-    await provider.create(
+    final provider = Provider.of<GlobalController>(context, listen: false);
+    await provider.createTransaction(
       TransactionModel(
         id: "",
         value: 123.99,
@@ -40,7 +39,7 @@ class _TestPageState extends State<TestPage> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<TransactionController>(context);
+    final provider = Provider.of<GlobalController>(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: provider.isLoading
@@ -61,7 +60,7 @@ class _TestPageState extends State<TestPage> {
                         ),
                         subtitle: Text(item.description ?? "Empty"),
                         trailing: IconButton(
-                          onPressed: () => provider.remove(item.id),
+                          onPressed: () => provider.removeTransaction(item.id),
                           icon: const Icon(
                             Icons.remove_circle_outlined,
                             color: Colors.red,
